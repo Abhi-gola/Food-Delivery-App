@@ -26,7 +26,7 @@ export default function Card(props) {
                 return
             }
             else if(food.size !== size){
-                await dispatch({type:"ADD", id:props.foodItem._id, name:props.foodItem.name, price:finalPrice, qty:qty, size:size })
+                await dispatch({type:"ADD", id:props.foodItem._id, name:props.foodItem.name, price:finalPrice, qty:qty, size:size , img:props.ImgSrc})
                 return
             }
             return
@@ -44,8 +44,8 @@ export default function Card(props) {
         <div>
             <div>
                 <div className="card mt-3" style={{ "width": "18rem", "maxHeight": "360px" }}>
-                    <img className="card-img-top" src={props.foodItem.img} alt="..." style={{height:"160px", objectFit:"fill"}}/>
-                    <div className="card-body">
+                    <img className="card-img-top" src={props.ImgSrc} alt="..." style={{height:"160px", objectFit:"fill"}}/>
+                    <div className="card-body bg-light">
                         <h5 className="card-title">{props.foodItem.name}</h5>
                         {/* <p className="card-text">Hello this is the food web.</p> */}
                         <div className='containers w-100'>

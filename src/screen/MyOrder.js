@@ -37,8 +37,8 @@ export default function MyOrder() {
 
     return (
         <>
-            <div style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1498522271744-cdd435c13f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60")', height: '230vh', backgroundSize: 'cover' }}>
             <Navbar />
+            <div>
                 <div className="container">
                     {orderData.length > 0 ? (
                         orderData.map((item, index) => {
@@ -56,12 +56,9 @@ export default function MyOrder() {
                                     <div className="row">
                                         {item.slice(1).map((arrayData) => (
                                             <div key={arrayData.id} className="col-12 col-md-6 col-lg-3">
+                                                <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", borderRadius: '10px', objectFit: "fill" }} />
                                                 <div className="card mb-4">
-                                                    <img
-                                                        src={arrayData.image}
-                                                        alt={arrayData.name}
-                                                        className="card-img-top"
-                                                    />
+                                    
                                                     <div className="card-body">
                                                         <h5 className="card-title">{arrayData.name}</h5>
                                                         <div className="d-flex justify-content-between align-items-center mb-3">

@@ -99,15 +99,18 @@ const styles = {
   },
   form: {
     margin: '20px',
+    marginTop: '100px',
     width: '650px',
     padding: '20px',
     backgroundColor: '#fff',
-    borderRadius: '4px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    borderRadius: '15px',
+    boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
+    border: '2px solid black',
   },
+  
   heading: {
     textAlign: 'center',
-    // color:'white',
+    fontStyle: 'italic',
     marginBottom: '20px',
   },
   formGroup: {
@@ -115,7 +118,7 @@ const styles = {
   },
   label: {
     display: 'block',
-    // color:'white',
+    fontFamily: 'Helvetica, sans-serif',
     marginBottom: '5px',
     fontWeight: 'bold',
   },

@@ -1,5 +1,4 @@
 import React from 'react';
-import trash from "./delete.png";
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 
 export default function Cart() {
@@ -9,7 +8,8 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div className="container mt-5 text-center">
-        <h3 className="text-white">The Cart is Empty!</h3>
+        <h3>Your Cart is Empty!</h3>
+        <h5 style={{ fontStyle: 'italic' }}>Add Your Favourite Food Here</h5>
       </div>
     );
   }
@@ -32,15 +32,19 @@ export default function Cart() {
       dispatch({ type: "DROP" });
     }
   }
+  const handleClearCart = async () => {
+    dispatch({ type: "DROP" });
+  }
 
   const totalPrice = data.reduce((total, food) => total + food.price, 0);
 
   return (
     <div className="container mt-5">
       <table className="table table-hover">
+        <hr/>
         <thead>
-          <tr className="text-success fs-4">
-            <th scope="col">#</th>
+          <tr className="text-secondary fs-4">
+            <th scope="col">S.No.</th>
             <th scope="col">Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Option</th>
@@ -51,24 +55,32 @@ export default function Cart() {
         <tbody>
           {data.map((food, index) => (
             <tr key={index}>
-              <td className="text-white">{index + 1}</td>
-              <td className="text-white">{food.name}</td>
-              <td className="text-white">{food.qty}</td>
-              <td className="text-white">{food.size}</td>
-              <td className="text-white">₹{food.price}</td>
+              <td className="text-black">{index + 1}</td>
+              <td className="text-black">{food.name}</td>
+              <td className="text-black">{food.qty}</td>
+              <td className="text-black">{food.size}</td>
+              <td className="text-black">₹{food.price}</td>
               <td>
-                <button type="button" className="btn p-0" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>
-                  <img src={trash} alt="delete" style={{ height: '20px' }} />
-                </button>
+                <button type="button" className="btn btn-primary justify-center" onClick={() => { dispatch({ type: "DECREASE", index: index }) }}>-</button>
+              </td>
+              <td>
+                <button type="button" className="btn btn-primary justify-center" onClick={() => { dispatch({ type: "INCREASE", index: index }) }}>+</button>
+              </td>
+              <td>
+                <button type="button" className="btn btn-danger justify-center" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>Remove</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="text-white h5">Total Price: ₹{totalPrice}/-</div>
-      <div>
-        <button className="btn btn-success mt-4" onClick={handleCheckOut}>Check Out</button>
+      <div className="text-black h5">Total Price: ₹{totalPrice}/-</div>
+      <div className="d-flex justify-content-end mb-5">
+        <button className="btn btn-danger mt-1 me-1" onClick={handleClearCart}>Clear Cart</button>
+        <button className="btn btn-primary mt-1" onClick={handleCheckOut}>Check Out</button>
       </div>
+
     </div>
   );
 }
+
+

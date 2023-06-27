@@ -8,6 +8,9 @@ const OrderSchema = new Schema({
         require:true,
         unique:true
     },
+    image: {
+        type: String 
+    },
     order_data:{
         type: Array,
         required:true

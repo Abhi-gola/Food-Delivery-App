@@ -129,15 +129,17 @@ const styles = {
     },
     form: {
         margin: '20px',
+        marginTop: '70px',
         width: '500px',
         padding: '20px',
         backgroundColor: '#fff',
-        borderRadius: '4px',
+        borderRadius: '15px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        border: '2px solid black'
     },
     heading: {
         textAlign: 'center',
-        fontFamily: 'Helvetica, sans-serif',
+        fontStyle: 'italic',
         marginBottom: '20px',
     },
     formGroup: {
@@ -145,6 +147,7 @@ const styles = {
     },
     label: {
         display: 'block',
+        fontFamily: 'Helvetica, sans-serif',
         marginBottom: '5px',
         fontWeight: 'bold',
     },
